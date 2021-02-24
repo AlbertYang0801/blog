@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gitbook自动发布到GitHub脚本 | 技术小站</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="博观而约取,厚积而薄发">
+    
+    <link rel="preload" href="/technology-station/assets/css/0.styles.8ec88315.css" as="style"><link rel="preload" href="/technology-station/assets/js/app.b4602e7d.js" as="script"><link rel="preload" href="/technology-station/assets/js/2.34bc5e26.js" as="script"><link rel="preload" href="/technology-station/assets/js/46.5cfd33f6.js" as="script"><link rel="prefetch" href="/technology-station/assets/js/10.87999a90.js"><link rel="prefetch" href="/technology-station/assets/js/11.0fb08454.js"><link rel="prefetch" href="/technology-station/assets/js/12.a2570cf4.js"><link rel="prefetch" href="/technology-station/assets/js/13.4a45393a.js"><link rel="prefetch" href="/technology-station/assets/js/14.a4294fb2.js"><link rel="prefetch" href="/technology-station/assets/js/15.6c788ca1.js"><link rel="prefetch" href="/technology-station/assets/js/16.d120d7ae.js"><link rel="prefetch" href="/technology-station/assets/js/17.8fa44da5.js"><link rel="prefetch" href="/technology-station/assets/js/18.e8583352.js"><link rel="prefetch" href="/technology-station/assets/js/19.c36eb8ad.js"><link rel="prefetch" href="/technology-station/assets/js/20.7096e1b2.js"><link rel="prefetch" href="/technology-station/assets/js/21.cf02ba7c.js"><link rel="prefetch" href="/technology-station/assets/js/22.dbd1198f.js"><link rel="prefetch" href="/technology-station/assets/js/23.19bb5634.js"><link rel="prefetch" href="/technology-station/assets/js/24.d5f71af7.js"><link rel="prefetch" href="/technology-station/assets/js/25.2552a44c.js"><link rel="prefetch" href="/technology-station/assets/js/26.81253511.js"><link rel="prefetch" href="/technology-station/assets/js/27.7fb1e23a.js"><link rel="prefetch" href="/technology-station/assets/js/28.ffc46e29.js"><link rel="prefetch" href="/technology-station/assets/js/29.0888e345.js"><link rel="prefetch" href="/technology-station/assets/js/3.460225c9.js"><link rel="prefetch" href="/technology-station/assets/js/30.f5983be7.js"><link rel="prefetch" href="/technology-station/assets/js/31.8e2918d1.js"><link rel="prefetch" href="/technology-station/assets/js/32.eb0c0f2b.js"><link rel="prefetch" href="/technology-station/assets/js/33.ab9c2090.js"><link rel="prefetch" href="/technology-station/assets/js/34.7e216157.js"><link rel="prefetch" href="/technology-station/assets/js/35.0f0acd6c.js"><link rel="prefetch" href="/technology-station/assets/js/36.66ba110d.js"><link rel="prefetch" href="/technology-station/assets/js/37.ef8d157a.js"><link rel="prefetch" href="/technology-station/assets/js/38.0c122753.js"><link rel="prefetch" href="/technology-station/assets/js/39.e4f82ed8.js"><link rel="prefetch" href="/technology-station/assets/js/4.d1629b60.js"><link rel="prefetch" href="/technology-station/assets/js/40.f60955a3.js"><link rel="prefetch" href="/technology-station/assets/js/41.71f6c8d0.js"><link rel="prefetch" href="/technology-station/assets/js/42.37b9d1f7.js"><link rel="prefetch" href="/technology-station/assets/js/43.b821f75e.js"><link rel="prefetch" href="/technology-station/assets/js/44.cb23e102.js"><link rel="prefetch" href="/technology-station/assets/js/45.ab9590aa.js"><link rel="prefetch" href="/technology-station/assets/js/47.a8e3fb00.js"><link rel="prefetch" href="/technology-station/assets/js/48.547beacd.js"><link rel="prefetch" href="/technology-station/assets/js/5.bd3bb13e.js"><link rel="prefetch" href="/technology-station/assets/js/6.c729153e.js"><link rel="prefetch" href="/technology-station/assets/js/7.70b03e9c.js"><link rel="prefetch" href="/technology-station/assets/js/8.9d7cac54.js"><link rel="prefetch" href="/technology-station/assets/js/9.a992a8d1.js">
+    <link rel="stylesheet" href="/technology-station/assets/css/0.styles.8ec88315.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/technology-station/" class="home-link router-link-active"><!----> <span class="site-name">技术小站</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/technology-station/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/technology-station/overview/" class="nav-link">
+  概览
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="高并发" class="dropdown-title"><span class="title">高并发</span> <span class="arrow down"></span></button> <button type="button" aria-label="高并发" class="mobile-dropdown-title"><span class="title">高并发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/technology-station/concurrent/threadpool/" class="nav-link">
+  1.线程池
+</a></li><li class="dropdown-item"><!----> <a href="/technology-station/concurrent/synchronized/" class="nav-link">
+  2.线程安全
+</a></li><li class="dropdown-item"><!----> <a href="/technology-station/concurrent/tool.html" class="nav-link">
+  3.并发控制工具
+</a></li><li class="dropdown-item"><!----> <a href="/technology-station/concurrent/container.html" class="nav-link">
+  4.并发容器
+</a></li></ul></div></div><div class="nav-item"><a href="/technology-station/server/" class="nav-link">
+  服务器向
+</a></div><div class="nav-item"><a href="/technology-station/util/" class="nav-link router-link-active">
+  工具向
+</a></div><div class="nav-item"><a href="/technology-station/albert/" class="nav-link">
+  个人随笔
+</a></div><div class="nav-item"><a href="https://google.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  External
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Languages" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Languages" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/technology-station/language/chinese.html" class="nav-link">
+  Chinese
+</a></li><li class="dropdown-item"><!----> <a href="/technology-station/language/japanese.html" class="nav-link">
+  Japanese
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="高级" class="dropdown-title"><span class="title">高级</span> <span class="arrow down"></span></button> <button type="button" aria-label="高级" class="mobile-dropdown-title"><span class="title">高级</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/technology-station/language/chinese.html" class="nav-link">
+  冒泡
+</a></li><li class="dropdown-subitem"><a href="/technology-station/language/japanese.html" class="nav-link">
+  快速
+</a></li></ul></li><li class="dropdown-item"><h4>
+          设计模式
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/technology-station/language/chinese.html" class="nav-link">
+  工厂
+</a></li><li class="dropdown-subitem"><a href="/technology-station/language/chinese.html" class="nav-link">
+  单例
+</a></li></ul></li></ul></div></div> <a href="https://github.com/itclanCode/blogcode" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/technology-station/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/technology-station/overview/" class="nav-link">
+  概览
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="高并发" class="dropdown-title"><span class="title">高并发</span> <span class="arrow down"></span></button> <button type="button" aria-label="高并发" class="mobile-dropdown-title"><span class="title">高并发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/technology-station/concurrent/threadpool/" class="nav-link">
+  1.线程池
+</a></li><li class="dropdown-item"><!----> <a href="/technology-station/concurrent/synchronized/" class="nav-link">
+  2.线程安全
+</a></li><li class="dropdown-item"><!----> <a href="/technology-station/concurrent/tool.html" class="nav-link">
+  3.并发控制工具
+</a></li><li class="dropdown-item"><!----> <a href="/technology-station/concurrent/container.html" class="nav-link">
+  4.并发容器
+</a></li></ul></div></div><div class="nav-item"><a href="/technology-station/server/" class="nav-link">
+  服务器向
+</a></div><div class="nav-item"><a href="/technology-station/util/" class="nav-link router-link-active">
+  工具向
+</a></div><div class="nav-item"><a href="/technology-station/albert/" class="nav-link">
+  个人随笔
+</a></div><div class="nav-item"><a href="https://google.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  External
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Languages" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Languages" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/technology-station/language/chinese.html" class="nav-link">
+  Chinese
+</a></li><li class="dropdown-item"><!----> <a href="/technology-station/language/japanese.html" class="nav-link">
+  Japanese
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="高级" class="dropdown-title"><span class="title">高级</span> <span class="arrow down"></span></button> <button type="button" aria-label="高级" class="mobile-dropdown-title"><span class="title">高级</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/technology-station/language/chinese.html" class="nav-link">
+  冒泡
+</a></li><li class="dropdown-subitem"><a href="/technology-station/language/japanese.html" class="nav-link">
+  快速
+</a></li></ul></li><li class="dropdown-item"><h4>
+          设计模式
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/technology-station/language/chinese.html" class="nav-link">
+  工厂
+</a></li><li class="dropdown-subitem"><a href="/technology-station/language/chinese.html" class="nav-link">
+  单例
+</a></li></ul></li></ul></div></div> <a href="https://github.com/itclanCode/blogcode" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="gitbook自动发布到github脚本"><a href="#gitbook自动发布到github脚本" class="header-anchor">#</a> Gitbook自动发布到GitHub脚本</h2> <h3 id="概述"><a href="#概述" class="header-anchor">#</a> 概述</h3> <p>我在使用<code>Gitbook</code>的时候，搭配使用了GitHub Pages搭建主页。由于<code>Gitbook</code>静态文件发布到<code>GitHub</code>较为繁琐，故开发了脚本来实现自动发布。</p> <h3 id="本地文件介绍"><a href="#本地文件介绍" class="header-anchor">#</a> 本地文件介绍</h3> <p>首先在本地创建了一个存放<code>Gitbook基础文件</code>的目录<code>gitbook</code>，创建了一个<code>Java项目</code>用来同步<code>Gitbook生成的静态文件</code>到<code>Github</code>。</p> <ul><li><p>gitbook文件目录</p> <p><img src="https://cdn.jsdelivr.net/gh/AlbertYang0801/pic-bed@main/img/20210222154231.png" alt="gitbook目录"></p></li> <li><p>java项目结构</p> <p><img src="https://cdn.jsdelivr.net/gh/AlbertYang0801/pic-bed@main/img/20210222154325.png" alt="Java项目结构"></p></li></ul> <h3 id="传统发布流程"><a href="#传统发布流程" class="header-anchor">#</a> 传统发布流程</h3> <ol><li><p>编写md文章。</p></li> <li><p>使用<code>gitbook build</code>命令生成html静态文件，使用后会在<code>gitbook基础文件目录</code>下的<code>_book</code>文件夹生成静态文件。</p></li> <li><p>复制<code>_book</code>文件夹下所有文件到<code>java项目</code>根路径下。</p></li> <li><p>使用git命令将<code>java项目</code>新增内容同步到github。</p> <p><em>由于发布流程的第2、3、4步太过繁琐，故开发一个脚本，按照顺序执行2、3、4步完成自动发布的功能。</em></p></li></ol> <h3 id="自动脚本发布"><a href="#自动脚本发布" class="header-anchor">#</a> 自动脚本发布</h3> <blockquote><p>支持手动同步和定时同步，可实现<code>gitbook</code>文件一键<code>gitbook build</code>,然后发布到<code>GitHub</code>上。</p></blockquote> <h4 id="手动同步"><a href="#手动同步" class="header-anchor">#</a> 手动同步</h4> <blockquote><p>不需要部署服务器</p></blockquote> <ol><li><p>跳转到手动脚本：<a href="https://gitee.com/zztiyjw/gitbook-publish-autoscript/tree/master/src/main/java/com/albert/script/GitbookManualScript.java" target="_blank" rel="noopener noreferrer">GitbookManualScript.java<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></li> <li><p>手动指定必要参数</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">/**
+ * gitbook本地目录
+ */</span>
+<span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">static</span> <span class="token class-name">String</span> GITBOOK_PATH <span class="token operator">=</span> <span class="token string">&quot;/Users/yangjunwei/gitbook&quot;</span><span class="token punctuation">;</span>
+<span class="token comment">/**
+ * github对应本地项目目录
+ */</span>
+<span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">static</span> <span class="token class-name">String</span> GITHUB_PROJECT_PATH <span class="token operator">=</span> <span class="token string">&quot;/Users/yangjunwei/IdeaProjects/gitbook-technology&quot;</span><span class="token punctuation">;</span>
+<span class="token comment">/**
+ * github对应remote
+ */</span>
+<span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">static</span> <span class="token class-name">String</span> GITHUB_REMOTE <span class="token operator">=</span> <span class="token string">&quot;origin&quot;</span><span class="token punctuation">;</span>
+<span class="token comment">/**
+ * github分支名称
+ */</span>
+<span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">static</span> <span class="token class-name">String</span> GITHUB_BRANCH <span class="token operator">=</span> <span class="token string">&quot;main&quot;</span><span class="token punctuation">;</span>
+</code></pre></div></li> <li><p>执行main()方法</p></li></ol> <h4 id="定时同步"><a href="#定时同步" class="header-anchor">#</a> 定时同步</h4> <blockquote><p>可部署到服务器，参考安装教程</p></blockquote> <ol><li><p>修改配置文件：<a href="config/application.properties">application.properties</a>中的属性值</p> <div class="language-java extra-class"><pre class="language-java"><code>#gitbook本地目录
+gitbook<span class="token punctuation">.</span>path<span class="token operator">=</span><span class="token operator">/</span><span class="token class-name">Users</span><span class="token operator">/</span>yangjunwei<span class="token operator">/</span>gitbook
+#github项目本地路径
+github<span class="token punctuation">.</span>project<span class="token punctuation">.</span>path<span class="token operator">=</span><span class="token operator">/</span><span class="token class-name">Users</span><span class="token operator">/</span>yangjunwei<span class="token operator">/</span><span class="token class-name">IdeaProjects</span><span class="token operator">/</span>gitbook<span class="token operator">-</span>technology
+#github的remote值
+github<span class="token punctuation">.</span>remote<span class="token operator">=</span>origin
+#github分支名称
+github<span class="token punctuation">.</span>branch<span class="token operator">=</span>main
+#定时同步gitbook的cron表达式
+auto<span class="token punctuation">.</span>sync<span class="token punctuation">.</span>gitbook<span class="token punctuation">.</span>cron<span class="token operator">=</span><span class="token string">'0 0 23 * * *'</span>
+</code></pre></div></li></ol> <p>2.启动 <a href="src/main/java/com/albert/Application.java">Application.java</a></p> <h4 id="实现思路"><a href="#实现思路" class="header-anchor">#</a> 实现思路</h4> <p>1.使用Java执行命令<code>gitbook build</code>。</p> <p>2.Java实现复制文件夹下的所有文件，将<code>_book</code>文件夹下所有文件复制到Java项目根路径下。</p> <p>3.使用git命令将<code>java项目</code>新增内容同步到github。</p> <p>​	同第一步一样，使用Java依次执行以下命令：</p> <ul><li><code>git add .</code></li> <li><code>git commit -m {msg}</code></li> <li><code>git push {remote} {branch}</code></li></ul> <p>参考：<a href="/technology-station/util/gitbook/ava实现执行系统命令.html">Java实现执行系统命令</a>、<a href="/technology-station/util/gitbook/Java实现复制文件夹下的所有文件.html">Java实现复制文件夹下的所有文件</a></p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/itclanCode/blogcode/edit/master/docs/util/gitbook/Gitbook自动发布GitHub脚本.md" target="_blank" rel="noopener noreferrer">发现有错误?前往GitHub指正</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2/24/2021, 3:17:10 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/technology-station/assets/js/app.b4602e7d.js" defer></script><script src="/technology-station/assets/js/2.34bc5e26.js" defer></script><script src="/technology-station/assets/js/46.5cfd33f6.js" defer></script>
+  </body>
+</html>
