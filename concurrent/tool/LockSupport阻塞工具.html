@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LockSupport 阻塞工具 | 技术小站</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="logo.ico">
+    <meta name="description" content="生活不止眼前的代码，还有迈向田野的步伐">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.ae2fffaf.css" as="style"><link rel="preload" href="/blog/assets/js/app.69fb67a1.js" as="script"><link rel="preload" href="/blog/assets/js/2.4016a2d7.js" as="script"><link rel="preload" href="/blog/assets/js/27.9f9faf8f.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.67bef570.js"><link rel="prefetch" href="/blog/assets/js/11.fe8c8fa3.js"><link rel="prefetch" href="/blog/assets/js/12.75dccbee.js"><link rel="prefetch" href="/blog/assets/js/13.44b0bfe8.js"><link rel="prefetch" href="/blog/assets/js/14.9346e768.js"><link rel="prefetch" href="/blog/assets/js/15.e83fb7bf.js"><link rel="prefetch" href="/blog/assets/js/16.85958add.js"><link rel="prefetch" href="/blog/assets/js/17.fe068445.js"><link rel="prefetch" href="/blog/assets/js/18.6d981bf2.js"><link rel="prefetch" href="/blog/assets/js/19.5cfcd256.js"><link rel="prefetch" href="/blog/assets/js/20.b617c2ee.js"><link rel="prefetch" href="/blog/assets/js/21.8faec1e4.js"><link rel="prefetch" href="/blog/assets/js/22.b5ecd719.js"><link rel="prefetch" href="/blog/assets/js/23.908cdf8b.js"><link rel="prefetch" href="/blog/assets/js/24.bb07b8a3.js"><link rel="prefetch" href="/blog/assets/js/25.12239f0c.js"><link rel="prefetch" href="/blog/assets/js/26.f0612eeb.js"><link rel="prefetch" href="/blog/assets/js/28.09413d35.js"><link rel="prefetch" href="/blog/assets/js/29.c95d8f86.js"><link rel="prefetch" href="/blog/assets/js/3.af3a3e6c.js"><link rel="prefetch" href="/blog/assets/js/30.3f05f0e2.js"><link rel="prefetch" href="/blog/assets/js/31.5e64ba2b.js"><link rel="prefetch" href="/blog/assets/js/32.3b6ae82a.js"><link rel="prefetch" href="/blog/assets/js/33.0b289b40.js"><link rel="prefetch" href="/blog/assets/js/34.262cbd9c.js"><link rel="prefetch" href="/blog/assets/js/35.efdad6b2.js"><link rel="prefetch" href="/blog/assets/js/36.77d34ce4.js"><link rel="prefetch" href="/blog/assets/js/37.df81f2ee.js"><link rel="prefetch" href="/blog/assets/js/38.2be04f95.js"><link rel="prefetch" href="/blog/assets/js/39.7ccaa519.js"><link rel="prefetch" href="/blog/assets/js/4.a3bbc4b9.js"><link rel="prefetch" href="/blog/assets/js/40.027f317c.js"><link rel="prefetch" href="/blog/assets/js/41.d1d909a0.js"><link rel="prefetch" href="/blog/assets/js/42.d7dd1430.js"><link rel="prefetch" href="/blog/assets/js/43.6cd158cc.js"><link rel="prefetch" href="/blog/assets/js/44.b6b88860.js"><link rel="prefetch" href="/blog/assets/js/45.1495d9ad.js"><link rel="prefetch" href="/blog/assets/js/46.2e119b51.js"><link rel="prefetch" href="/blog/assets/js/47.86b36b7a.js"><link rel="prefetch" href="/blog/assets/js/48.83522760.js"><link rel="prefetch" href="/blog/assets/js/49.0388f364.js"><link rel="prefetch" href="/blog/assets/js/5.0f95da72.js"><link rel="prefetch" href="/blog/assets/js/50.d2d4b56a.js"><link rel="prefetch" href="/blog/assets/js/51.147e59d2.js"><link rel="prefetch" href="/blog/assets/js/52.36d01276.js"><link rel="prefetch" href="/blog/assets/js/53.b8607bb7.js"><link rel="prefetch" href="/blog/assets/js/54.e0f73188.js"><link rel="prefetch" href="/blog/assets/js/55.5950cd7e.js"><link rel="prefetch" href="/blog/assets/js/56.2bff181f.js"><link rel="prefetch" href="/blog/assets/js/6.621b7d8e.js"><link rel="prefetch" href="/blog/assets/js/7.1250f6d4.js"><link rel="prefetch" href="/blog/assets/js/8.33180036.js"><link rel="prefetch" href="/blog/assets/js/9.a57e59ce.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.ae2fffaf.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">技术小站</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/blog/concurrent/" class="nav-link router-link-active">
+  高并发
+</a></div><div class="nav-item"><a href="/blog/design/" class="nav-link">
+  设计模式
+</a></div><div class="nav-item"><a href="/blog/jvm/" class="nav-link">
+  JVM
+</a></div><div class="nav-item"><a href="/blog/server/" class="nav-link">
+  服务器向
+</a></div><div class="nav-item"><a href="/blog/util/" class="nav-link">
+  工具向
+</a></div><div class="nav-item"><a href="/blog/personal/" class="nav-link">
+  关于我
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/blog/concurrent/" class="nav-link router-link-active">
+  高并发
+</a></div><div class="nav-item"><a href="/blog/design/" class="nav-link">
+  设计模式
+</a></div><div class="nav-item"><a href="/blog/jvm/" class="nav-link">
+  JVM
+</a></div><div class="nav-item"><a href="/blog/server/" class="nav-link">
+  服务器向
+</a></div><div class="nav-item"><a href="/blog/util/" class="nav-link">
+  工具向
+</a></div><div class="nav-item"><a href="/blog/personal/" class="nav-link">
+  关于我
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>一、多线程基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>二、线程池</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>三、synchronized</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>四、锁</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>五、并发控制工具</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/concurrent/tool/倒计数器CountdownLatch.html" class="sidebar-link">倒计数器 CountdownLatch</a></li><li><a href="/blog/concurrent/tool/信号量Semaphore.html" class="sidebar-link">信号量 Semaphore</a></li><li><a href="/blog/concurrent/tool/循环栅栏CyclicBarrier.html" class="sidebar-link">循环栅栏 CyclicBarrier</a></li><li><a href="/blog/concurrent/tool/LockSupport阻塞工具.html" class="active sidebar-link">LockSupport 阻塞工具</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/concurrent/tool/ReadLimiter限流.html" class="sidebar-link">ReadLimiter限流</a></li><li><a href="/blog/concurrent/tool/ThreadLocal.html" class="sidebar-link">ThreadLocal</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>六、并发容器</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="locksupport-阻塞工具"><a href="#locksupport-阻塞工具" class="header-anchor">#</a> LockSupport 阻塞工具</h3> <hr> <p><code>LockSupport</code> 是一个非常方便实用的线程阻塞工具，它可以在线程内任意位置让线程阻塞。不需要获取任何锁，也不会抛出中断异常。</p> <h4 id="常用方法"><a href="#常用方法" class="header-anchor">#</a> 常用方法</h4> <ul><li>阻塞方法
+<ul><li><code>park()</code> ：直接阻塞</li> <li><code>parkNaors()</code> ：限时阻塞</li></ul></li></ul> <p><code>LockSupport.park()</code> 方法可实现限时等待，还能支持中断响应，但是并不会抛出 <code>InterruptedException</code> 异常，它只会默默返回。</p> <ul><li>取消阻塞
+<ul><li><code>unpark()</code> ：取消线程阻塞状态</li></ul></li></ul> <h4 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h4> <p>与 <code>Thread.suspend()</code> 方法相比，推荐使用该方法进行线程阻塞。因为 <code>Thread.suspend()</code> 阻塞当前线程时，可能会产生死锁。</p> <p>而 <code>LockSupport</code> 内部使用的是类似信号量的机制，每个线程都有一个许可，若许可可用，则  <code>park()</code> 方法会立即返回消费该许可，将许可变为不可用，对应线程会阻塞。而 <code>unpark()</code> 方法会使一个许可变为可用，所以即使先调用 <code>unpark()</code> 方法， <code>park()</code>方法也会顺利执行并结束，而不会造成死锁。</p> <h4 id="参考练习"><a href="#参考练习" class="header-anchor">#</a> 参考练习</h4> <p><a href="https://gitee.com/zztiyjw/concurrent-practice/tree/master/src/test/java/com/albert/concurrent/book/chapterthree/LockSupport_10.java" target="_blank" rel="noopener noreferrer">LockSupport的简单练习<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021-03-05 16:09:48</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/concurrent/tool/循环栅栏CyclicBarrier.html" class="prev">
+        循环栅栏 CyclicBarrier
+      </a></span> <span class="next"><a href="/blog/concurrent/tool/ReadLimiter限流.html">
+        ReadLimiter限流
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.69fb67a1.js" defer></script><script src="/blog/assets/js/2.4016a2d7.js" defer></script><script src="/blog/assets/js/27.9f9faf8f.js" defer></script>
+  </body>
+</html>
