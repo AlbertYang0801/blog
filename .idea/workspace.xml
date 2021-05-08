@@ -71,6 +71,7 @@
       <workItem from="1614173886040" duration="345000" />
       <workItem from="1614174465173" duration="864000" />
       <workItem from="1614614445337" duration="357000" />
+      <workItem from="1620293528190" duration="133000" />
     </task>
     <task id="LOCAL-00001" summary="# first commit">
       <created>1614153869527</created>
@@ -128,5 +129,9 @@
       <screen x="54" y="25" width="1386" height="875" />
     </state>
     <state x="451" y="220" width="599" height="486" key="find.popup/54.25.1386.875@54.25.1386.875" timestamp="1614154295611" />
+    <state x="555" y="355" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1620293612715">
+      <screen x="54" y="25" width="1386" height="875" />
+    </state>
+    <state x="555" y="355" key="git4idea.remote.GitConfigureRemotesDialog/54.25.1386.875@54.25.1386.875" timestamp="1620293612715" />
   </component>
 </project>
