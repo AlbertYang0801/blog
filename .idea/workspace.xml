@@ -76,6 +76,7 @@
       <workItem from="1614614445337" duration="357000" />
       <workItem from="1620293528190" duration="133000" />
       <workItem from="1622795692358" duration="1641000" />
+      <workItem from="1622797516979" duration="465000" />
     </task>
     <task id="LOCAL-00001" summary="# first commit">
       <created>1614153869527</created>
@@ -133,10 +134,10 @@
       <screen x="58" y="25" width="1382" height="875" />
     </state>
     <state x="258" y="57" key="SettingsEditor/58.25.1382.875@58.25.1382.875" timestamp="1622797461501" />
-    <state x="349" y="199" key="Vcs.Push.Dialog.v2" timestamp="1622797297510">
+    <state x="349" y="199" key="Vcs.Push.Dialog.v2" timestamp="1622797781061">
       <screen x="58" y="25" width="1382" height="875" />
     </state>
-    <state x="349" y="199" key="Vcs.Push.Dialog.v2/58.25.1382.875@58.25.1382.875" timestamp="1622797297510" />
+    <state x="349" y="199" key="Vcs.Push.Dialog.v2/58.25.1382.875@58.25.1382.875" timestamp="1622797781061" />
     <state x="443" y="255" key="git4idea.merge.GitPullDialog" timestamp="1622796607928">
       <screen x="58" y="25" width="1382" height="875" />
     </state>
