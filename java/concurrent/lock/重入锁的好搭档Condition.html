@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>重入锁的好搭档：Condition | 技术小站</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="logo.ico">
+    <meta name="description" content="生活不止眼前的代码，还有迈向田野的步伐">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.069fd700.css" as="style"><link rel="preload" href="/blog/assets/js/app.86d3a547.js" as="script"><link rel="preload" href="/blog/assets/js/2.7ded94f8.js" as="script"><link rel="preload" href="/blog/assets/js/52.fdace2e8.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.2c31f16c.js"><link rel="prefetch" href="/blog/assets/js/11.26e43f23.js"><link rel="prefetch" href="/blog/assets/js/12.f2fb9538.js"><link rel="prefetch" href="/blog/assets/js/13.5d78287a.js"><link rel="prefetch" href="/blog/assets/js/14.4ee95829.js"><link rel="prefetch" href="/blog/assets/js/15.965c8199.js"><link rel="prefetch" href="/blog/assets/js/16.2a5012cd.js"><link rel="prefetch" href="/blog/assets/js/17.6cb8f1d5.js"><link rel="prefetch" href="/blog/assets/js/18.d484c9d2.js"><link rel="prefetch" href="/blog/assets/js/19.4c6b3560.js"><link rel="prefetch" href="/blog/assets/js/20.06472fe5.js"><link rel="prefetch" href="/blog/assets/js/21.c4543600.js"><link rel="prefetch" href="/blog/assets/js/22.74c530ae.js"><link rel="prefetch" href="/blog/assets/js/23.043d2584.js"><link rel="prefetch" href="/blog/assets/js/24.c6aa203c.js"><link rel="prefetch" href="/blog/assets/js/25.976b4905.js"><link rel="prefetch" href="/blog/assets/js/26.9d6de787.js"><link rel="prefetch" href="/blog/assets/js/27.471afdc5.js"><link rel="prefetch" href="/blog/assets/js/28.7d155518.js"><link rel="prefetch" href="/blog/assets/js/29.c07d7abc.js"><link rel="prefetch" href="/blog/assets/js/3.ff39b541.js"><link rel="prefetch" href="/blog/assets/js/30.72de95e8.js"><link rel="prefetch" href="/blog/assets/js/31.2b29f69d.js"><link rel="prefetch" href="/blog/assets/js/32.27c4c2d1.js"><link rel="prefetch" href="/blog/assets/js/33.d3990d49.js"><link rel="prefetch" href="/blog/assets/js/34.a6fbf97c.js"><link rel="prefetch" href="/blog/assets/js/35.70aa1261.js"><link rel="prefetch" href="/blog/assets/js/36.c6681141.js"><link rel="prefetch" href="/blog/assets/js/37.adf492bb.js"><link rel="prefetch" href="/blog/assets/js/38.290b5f7c.js"><link rel="prefetch" href="/blog/assets/js/39.dac4127d.js"><link rel="prefetch" href="/blog/assets/js/4.56fda3ff.js"><link rel="prefetch" href="/blog/assets/js/40.a068c386.js"><link rel="prefetch" href="/blog/assets/js/41.bacc6213.js"><link rel="prefetch" href="/blog/assets/js/42.7938fb6f.js"><link rel="prefetch" href="/blog/assets/js/43.4e9690ad.js"><link rel="prefetch" href="/blog/assets/js/44.5cc9e39f.js"><link rel="prefetch" href="/blog/assets/js/45.8c1f5c7c.js"><link rel="prefetch" href="/blog/assets/js/46.f59d0ee8.js"><link rel="prefetch" href="/blog/assets/js/47.546afc2e.js"><link rel="prefetch" href="/blog/assets/js/48.1a68748d.js"><link rel="prefetch" href="/blog/assets/js/49.3a92c271.js"><link rel="prefetch" href="/blog/assets/js/5.7d16fc96.js"><link rel="prefetch" href="/blog/assets/js/50.07273b0d.js"><link rel="prefetch" href="/blog/assets/js/51.a8cd78e4.js"><link rel="prefetch" href="/blog/assets/js/53.e2e159ba.js"><link rel="prefetch" href="/blog/assets/js/54.b6a2c082.js"><link rel="prefetch" href="/blog/assets/js/55.d4f8a95e.js"><link rel="prefetch" href="/blog/assets/js/56.a7f9fa12.js"><link rel="prefetch" href="/blog/assets/js/57.a2346e8a.js"><link rel="prefetch" href="/blog/assets/js/58.f6567a49.js"><link rel="prefetch" href="/blog/assets/js/59.74bed024.js"><link rel="prefetch" href="/blog/assets/js/6.c1bd8a18.js"><link rel="prefetch" href="/blog/assets/js/60.93fc2c7f.js"><link rel="prefetch" href="/blog/assets/js/61.6b5a302a.js"><link rel="prefetch" href="/blog/assets/js/62.3efbcca6.js"><link rel="prefetch" href="/blog/assets/js/63.084db28b.js"><link rel="prefetch" href="/blog/assets/js/64.02cae5a6.js"><link rel="prefetch" href="/blog/assets/js/65.23d0f537.js"><link rel="prefetch" href="/blog/assets/js/66.e27df514.js"><link rel="prefetch" href="/blog/assets/js/67.a4126e93.js"><link rel="prefetch" href="/blog/assets/js/68.98a6a1e0.js"><link rel="prefetch" href="/blog/assets/js/69.c7b8b5d9.js"><link rel="prefetch" href="/blog/assets/js/7.8d45ee92.js"><link rel="prefetch" href="/blog/assets/js/70.1b647502.js"><link rel="prefetch" href="/blog/assets/js/71.42896759.js"><link rel="prefetch" href="/blog/assets/js/72.779408a1.js"><link rel="prefetch" href="/blog/assets/js/73.92a812fd.js"><link rel="prefetch" href="/blog/assets/js/74.d7c8f76b.js"><link rel="prefetch" href="/blog/assets/js/75.c49ef70f.js"><link rel="prefetch" href="/blog/assets/js/76.f565b59a.js"><link rel="prefetch" href="/blog/assets/js/77.86b756a3.js"><link rel="prefetch" href="/blog/assets/js/78.97732568.js"><link rel="prefetch" href="/blog/assets/js/79.e26f316a.js"><link rel="prefetch" href="/blog/assets/js/8.fbb7d904.js"><link rel="prefetch" href="/blog/assets/js/80.a5a650a8.js"><link rel="prefetch" href="/blog/assets/js/81.769901b3.js"><link rel="prefetch" href="/blog/assets/js/82.8bc1d128.js"><link rel="prefetch" href="/blog/assets/js/83.a67566f0.js"><link rel="prefetch" href="/blog/assets/js/84.e9152b73.js"><link rel="prefetch" href="/blog/assets/js/85.6d91ebe0.js"><link rel="prefetch" href="/blog/assets/js/86.c0ef6859.js"><link rel="prefetch" href="/blog/assets/js/87.232e22d9.js"><link rel="prefetch" href="/blog/assets/js/88.d19966cc.js"><link rel="prefetch" href="/blog/assets/js/89.fbd20b86.js"><link rel="prefetch" href="/blog/assets/js/9.c16fb42f.js"><link rel="prefetch" href="/blog/assets/js/90.679d3b3b.js"><link rel="prefetch" href="/blog/assets/js/91.7a910889.js"><link rel="prefetch" href="/blog/assets/js/92.85c37f0b.js"><link rel="prefetch" href="/blog/assets/js/93.68a2e8a2.js"><link rel="prefetch" href="/blog/assets/js/94.2176f131.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.069fd700.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">技术小站</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java篇" class="dropdown-title"><span class="title">Java篇</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java篇" class="mobile-dropdown-title"><span class="title">Java篇</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/java/collection/" class="nav-link">
+  Java容器
+</a></li><li class="dropdown-item"><!----> <a href="/blog/java/jvm/" class="nav-link">
+  JVM虚拟机
+</a></li><li class="dropdown-item"><!----> <a href="/blog/java/concurrent/" class="nav-link router-link-active">
+  高并发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/blog/database/redis/" class="nav-link">
+  Redis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架篇" class="dropdown-title"><span class="title">框架篇</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架篇" class="mobile-dropdown-title"><span class="title">框架篇</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/frame/spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/blog/frame/springboot/" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/blog/frame/mybatis/" class="nav-link">
+  MyBatis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="中间件" class="dropdown-title"><span class="title">中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="中间件" class="mobile-dropdown-title"><span class="title">中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/middleware/es/" class="nav-link">
+  Elasticsearch
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/design/" class="nav-link">
+  设计模式
+</a></div><div class="nav-item"><a href="/blog/util/" class="nav-link">
+  工具向
+</a></div><div class="nav-item"><a href="/blog/personal/" class="nav-link">
+  关于我
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java篇" class="dropdown-title"><span class="title">Java篇</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java篇" class="mobile-dropdown-title"><span class="title">Java篇</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/java/collection/" class="nav-link">
+  Java容器
+</a></li><li class="dropdown-item"><!----> <a href="/blog/java/jvm/" class="nav-link">
+  JVM虚拟机
+</a></li><li class="dropdown-item"><!----> <a href="/blog/java/concurrent/" class="nav-link router-link-active">
+  高并发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/blog/database/redis/" class="nav-link">
+  Redis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架篇" class="dropdown-title"><span class="title">框架篇</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架篇" class="mobile-dropdown-title"><span class="title">框架篇</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/frame/spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/blog/frame/springboot/" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/blog/frame/mybatis/" class="nav-link">
+  MyBatis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="中间件" class="dropdown-title"><span class="title">中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="中间件" class="mobile-dropdown-title"><span class="title">中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/middleware/es/" class="nav-link">
+  Elasticsearch
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/design/" class="nav-link">
+  设计模式
+</a></div><div class="nav-item"><a href="/blog/util/" class="nav-link">
+  工具向
+</a></div><div class="nav-item"><a href="/blog/personal/" class="nav-link">
+  关于我
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>一、多线程基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>二、线程池</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>三、synchronized</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>四、锁</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/java/concurrent/lock/自旋锁.html" class="sidebar-link">自旋锁</a></li><li><a href="/blog/java/concurrent/lock/可重入锁和不可重入锁.html" class="sidebar-link">可重入锁/不可重入锁</a></li><li><a href="/blog/java/concurrent/lock/公平锁和非公平锁.html" class="sidebar-link">公平锁和非公平锁</a></li><li><a href="/blog/java/concurrent/lock/重入锁ReentrantLock.html" class="sidebar-link">重入锁ReentrantLock</a></li><li><a href="/blog/java/concurrent/lock/重入锁的好搭档Condition.html" class="active sidebar-link">重入锁的好搭档：Condition</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/java/concurrent/lock/读写锁ReadWriteLock.html" class="sidebar-link">读写锁ReadWriteLock</a></li><li><a href="/blog/java/concurrent/lock/锁优化.html" class="sidebar-link">锁优化</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>五、并发控制工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>六、并发容器</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>七、无锁</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="重入锁的好搭档-condition"><a href="#重入锁的好搭档-condition" class="header-anchor">#</a> 重入锁的好搭档：Condition</h3> <hr> <p><code>Condition</code>是和<code>重入锁</code>搭配使用的，类似于<code>wait()</code>和<code>notify()</code>方法。<code>Object.wait()</code>和<code>Object.notify()</code>方法是与<code>synchronized</code>搭配使用的，而<code>Condition</code>是与<code>重入锁</code>搭配使用的。通过<code>lock</code>接口的<code>newCondition()</code>方法即可创建一个与当前锁绑定的<code>Condition</code>对象，利用该对象，就可以实现让线程在合适时机等待或得到通知。</p> <h4 id="主要方法"><a href="#主要方法" class="header-anchor">#</a> 主要方法</h4> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">void</span> <span class="token function">await</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">awaitUninterruptibly</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">boolean</span> <span class="token function">await</span><span class="token punctuation">(</span><span class="token keyword">long</span> time<span class="token punctuation">,</span> <span class="token class-name">TimeUnit</span> unit<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span><span class="token punctuation">;</span>
+
+<span class="token keyword">boolean</span> <span class="token function">awaitUntil</span><span class="token punctuation">(</span><span class="token class-name">Date</span> deadline<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">signal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">signalAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><ul><li><code>await()</code>方法会使当前线程等待，并<code>释放锁</code>。当其他线程使用<code>signal()</code>方法或者<code>signalAll()</code>方法时，线程会被唤醒并开始竞争锁资源。当线程被中断时，也能跳出等待。</li> <li><code>awaitUninterruptibly()</code>和<code>await()</code>方法基本一致，区别是在等待过程中不会响应中断。</li> <li><code>signal()</code>用于唤醒一个在等待中的线程，调用该方法的线程必须拥有锁对象，否则会报异常。</li> <li><code>signalAll()</code>方法会唤醒所有在等待中的线程。</li></ul> <h4 id="参考练习"><a href="#参考练习" class="header-anchor">#</a> 参考练习</h4> <p><a href="https://gitee.com/zztiyjw/concurrent-practice/tree/master/src/test/java/com/albert/concurrent/book/chapterthree/Condition_06.java" target="_blank" rel="noopener noreferrer">Condition的练习<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h4 id="源码应用"><a href="#源码应用" class="header-anchor">#</a> 源码应用</h4> <p>在阻塞队列<code>BlockQueue</code>实现阻塞的<code>put()</code>方法和<code>take()</code>里，就使用了<code>Condition</code>，下面以<code>ArrayBlockQueue</code>源码为例。</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>
+  <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ArrayBlockingQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token keyword">extends</span> <span class="token class-name">AbstractQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span>
+        <span class="token keyword">implements</span> <span class="token class-name">BlockingQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">,</span> <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span>Serializable</span> <span class="token punctuation">{</span>  
+
+		<span class="token comment">/** The queued items */</span>
+    <span class="token keyword">final</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> items<span class="token punctuation">;</span>
+
+    <span class="token comment">/** items index for next take, poll, peek or remove */</span>
+    <span class="token keyword">int</span> takeIndex<span class="token punctuation">;</span>
+
+    <span class="token comment">/** items index for next put, offer, or add */</span>
+    <span class="token keyword">int</span> putIndex<span class="token punctuation">;</span>
+    
+    <span class="token comment">/** Number of elements in the queue */</span>
+    <span class="token keyword">int</span> count<span class="token punctuation">;</span>
+
+    <span class="token comment">/*
+     * Concurrency control uses the classic two-condition algorithm
+     * found in any textbook.
+     */</span>
+
+    <span class="token comment">/** Main lock guarding all access */</span>
+    <span class="token keyword">final</span> <span class="token class-name">ReentrantLock</span> lock<span class="token punctuation">;</span>
+
+    <span class="token comment">/** Condition for waiting takes */</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Condition</span> notEmpty<span class="token punctuation">;</span>
+
+    <span class="token comment">/** Condition for waiting puts */</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Condition</span> notFull<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">ArrayBlockingQueue</span><span class="token punctuation">(</span><span class="token keyword">int</span> capacity<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">(</span>capacity<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">public</span> <span class="token class-name">ArrayBlockingQueue</span><span class="token punctuation">(</span><span class="token keyword">int</span> capacity<span class="token punctuation">,</span> <span class="token keyword">boolean</span> fair<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>capacity <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalArgumentException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      	<span class="token comment">//根据传入的长度创建数组</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>items <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">[</span>capacity<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      	<span class="token comment">//在构造方法中初始化锁（可指定公平/非公平）</span>
+        lock <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ReentrantLock</span><span class="token punctuation">(</span>fair<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      	<span class="token comment">//在构造方法中初始化锁的Condition</span>
+        notEmpty <span class="token operator">=</span> lock<span class="token punctuation">.</span><span class="token function">newCondition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        notFull <span class="token operator">=</span>  lock<span class="token punctuation">.</span><span class="token function">newCondition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//******************************入队*********************************</span>
+    
+    
+		<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">put</span><span class="token punctuation">(</span><span class="token class-name">E</span> e<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
+      	<span class="token comment">//判断为空抛出空指针异常</span>
+        <span class="token function">checkNotNull</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      	<span class="token comment">//获取全局锁</span>
+        <span class="token keyword">final</span> <span class="token class-name">ReentrantLock</span> lock <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>lock<span class="token punctuation">;</span>
+      	<span class="token comment">//加锁，响应中断</span>
+        lock<span class="token punctuation">.</span><span class="token function">lockInterruptibly</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+          	<span class="token comment">//当队列数据长度为内部数组的长度的时候，即队列满的情况，进行等待。</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>count <span class="token operator">==</span> items<span class="token punctuation">.</span>length<span class="token punctuation">)</span>
+              	<span class="token comment">//使用Condition的await()方法进行等待，会使当前线程等待，并释放锁。当其他线程使用signal()方法或者signalAll()方法时，线程会被唤醒并开始竞争锁资源。当线程被中断时，也能跳出等待。</span>
+                notFull<span class="token punctuation">.</span><span class="token function">await</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          	<span class="token comment">//添加元素</span>
+            <span class="token function">enqueue</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+          	<span class="token comment">//释放锁</span>
+            lock<span class="token punctuation">.</span><span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    
+     <span class="token comment">/**
+     * Inserts element at current put position, advances, and signals.
+     * Call only when holding lock.
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">enqueue</span><span class="token punctuation">(</span><span class="token class-name">E</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// assert lock.getHoldCount() == 1;</span>
+        <span class="token comment">// assert items[putIndex] == null;</span>
+        <span class="token keyword">final</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> items <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">;</span>
+      	<span class="token comment">//添加元素</span>
+        items<span class="token punctuation">[</span>putIndex<span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">++</span>putIndex <span class="token operator">==</span> items<span class="token punctuation">.</span>length<span class="token punctuation">)</span>
+            putIndex <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      	<span class="token comment">//总数+1</span>
+        count<span class="token operator">++</span><span class="token punctuation">;</span>
+      	<span class="token comment">//通知队列为空时候，调用的notEmpty的await()方法。</span>
+        notEmpty<span class="token punctuation">.</span><span class="token function">signal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token comment">//******************************出队*********************************</span>
+    
+    <span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">take</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token class-name">ReentrantLock</span> lock <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>lock<span class="token punctuation">;</span>
+        lock<span class="token punctuation">.</span><span class="token function">lockInterruptibly</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+          	<span class="token comment">//当队列长度为0的时候进行等待。</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>count <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+              	<span class="token comment">//await()方法进行等待，会使当前线程等待，并释放锁。当其他线程使用signal()方法或者signalAll()方法时，线程会被唤醒并开始竞争锁资源。notEmpty对应的signal()方法在enqueue()方法内部。</span>
+                notEmpty<span class="token punctuation">.</span><span class="token function">await</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token function">dequeue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+            lock<span class="token punctuation">.</span><span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    
+     <span class="token comment">/**
+     * Extracts element at current take position, advances, and signals.
+     * Call only when holding lock.
+     */</span>
+    <span class="token keyword">private</span> <span class="token class-name">E</span> <span class="token function">dequeue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// assert lock.getHoldCount() == 1;</span>
+        <span class="token comment">// assert items[takeIndex] != null;</span>
+        <span class="token keyword">final</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> items <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">;</span>
+        <span class="token annotation punctuation">@SuppressWarnings</span><span class="token punctuation">(</span><span class="token string">&quot;unchecked&quot;</span><span class="token punctuation">)</span>
+      	<span class="token comment">//获取出队元素</span>
+        <span class="token class-name">E</span> x <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">E</span><span class="token punctuation">)</span> items<span class="token punctuation">[</span>takeIndex<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      	<span class="token comment">//将出队元素位置置为null</span>
+        items<span class="token punctuation">[</span>takeIndex<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">++</span>takeIndex <span class="token operator">==</span> items<span class="token punctuation">.</span>length<span class="token punctuation">)</span>
+            takeIndex <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        count<span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>itrs <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            itrs<span class="token punctuation">.</span><span class="token function">elementDequeued</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      	<span class="token comment">//唤醒notFull.await()</span>
+        notFull<span class="token punctuation">.</span><span class="token function">signal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> x<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+      
+<span class="token punctuation">}</span>     
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021-07-01 08:39:18</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/java/concurrent/lock/重入锁ReentrantLock.html" class="prev">
+        重入锁ReentrantLock
+      </a></span> <span class="next"><a href="/blog/java/concurrent/lock/读写锁ReadWriteLock.html">
+        读写锁ReadWriteLock
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/blog/assets/js/app.86d3a547.js" defer></script><script src="/blog/assets/js/2.7ded94f8.js" defer></script><script src="/blog/assets/js/52.fdace2e8.js" defer></script>
+  </body>
+</html>
