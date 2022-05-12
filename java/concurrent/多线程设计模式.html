@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>多线程设计模式 | 技术小站</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="logo.ico">
+    <meta name="description" content="生活不止眼前的代码，还有迈向田野的步伐">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.7915b91d.css" as="style"><link rel="preload" href="/blog/assets/js/app.c12bf646.js" as="script"><link rel="preload" href="/blog/assets/js/2.7ded94f8.js" as="script"><link rel="preload" href="/blog/assets/js/75.658643bb.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.c8c59a9f.js"><link rel="prefetch" href="/blog/assets/js/100.c2faed5e.js"><link rel="prefetch" href="/blog/assets/js/101.7a5731cc.js"><link rel="prefetch" href="/blog/assets/js/102.36abe80c.js"><link rel="prefetch" href="/blog/assets/js/103.63fdf232.js"><link rel="prefetch" href="/blog/assets/js/104.364ef6a0.js"><link rel="prefetch" href="/blog/assets/js/105.e7fad755.js"><link rel="prefetch" href="/blog/assets/js/106.b5ef4293.js"><link rel="prefetch" href="/blog/assets/js/107.7c78085a.js"><link rel="prefetch" href="/blog/assets/js/108.a5b968d6.js"><link rel="prefetch" href="/blog/assets/js/109.605adde6.js"><link rel="prefetch" href="/blog/assets/js/11.f3c730d5.js"><link rel="prefetch" href="/blog/assets/js/110.0e1ff10d.js"><link rel="prefetch" href="/blog/assets/js/111.7c16b7e6.js"><link rel="prefetch" href="/blog/assets/js/112.2d97531b.js"><link rel="prefetch" href="/blog/assets/js/113.868ab954.js"><link rel="prefetch" href="/blog/assets/js/114.bc643977.js"><link rel="prefetch" href="/blog/assets/js/115.6b26058d.js"><link rel="prefetch" href="/blog/assets/js/12.3e7c40cd.js"><link rel="prefetch" href="/blog/assets/js/13.5e175502.js"><link rel="prefetch" href="/blog/assets/js/14.a614af2c.js"><link rel="prefetch" href="/blog/assets/js/15.01365556.js"><link rel="prefetch" href="/blog/assets/js/16.cc11f887.js"><link rel="prefetch" href="/blog/assets/js/17.a08f68e9.js"><link rel="prefetch" href="/blog/assets/js/18.189ddb29.js"><link rel="prefetch" href="/blog/assets/js/19.254e3695.js"><link rel="prefetch" href="/blog/assets/js/20.98a37fc6.js"><link rel="prefetch" href="/blog/assets/js/21.314768ec.js"><link rel="prefetch" href="/blog/assets/js/22.547673e0.js"><link rel="prefetch" href="/blog/assets/js/23.e9286205.js"><link rel="prefetch" href="/blog/assets/js/24.b493aa65.js"><link rel="prefetch" href="/blog/assets/js/25.25b49017.js"><link rel="prefetch" href="/blog/assets/js/26.f69863a7.js"><link rel="prefetch" href="/blog/assets/js/27.7bc8cce0.js"><link rel="prefetch" href="/blog/assets/js/28.86b76a76.js"><link rel="prefetch" href="/blog/assets/js/29.29b107ed.js"><link rel="prefetch" href="/blog/assets/js/3.3c8cf09d.js"><link rel="prefetch" href="/blog/assets/js/30.25d0641e.js"><link rel="prefetch" href="/blog/assets/js/31.3ea71e7b.js"><link rel="prefetch" href="/blog/assets/js/32.db9cf6ae.js"><link rel="prefetch" href="/blog/assets/js/33.8ba61471.js"><link rel="prefetch" href="/blog/assets/js/34.b64ee0fc.js"><link rel="prefetch" href="/blog/assets/js/35.b27f107f.js"><link rel="prefetch" href="/blog/assets/js/36.eeac78be.js"><link rel="prefetch" href="/blog/assets/js/37.c6424d7e.js"><link rel="prefetch" href="/blog/assets/js/38.b5bdf933.js"><link rel="prefetch" href="/blog/assets/js/39.1330d3fd.js"><link rel="prefetch" href="/blog/assets/js/4.93bdaf8a.js"><link rel="prefetch" href="/blog/assets/js/40.ba3ff3ea.js"><link rel="prefetch" href="/blog/assets/js/41.2010a720.js"><link rel="prefetch" href="/blog/assets/js/42.f809390a.js"><link rel="prefetch" href="/blog/assets/js/43.8bb9f778.js"><link rel="prefetch" href="/blog/assets/js/44.382a6196.js"><link rel="prefetch" href="/blog/assets/js/45.350b2804.js"><link rel="prefetch" href="/blog/assets/js/46.5a5738ed.js"><link rel="prefetch" href="/blog/assets/js/47.a9c108e7.js"><link rel="prefetch" href="/blog/assets/js/48.479ee17d.js"><link rel="prefetch" href="/blog/assets/js/49.84bcd037.js"><link rel="prefetch" href="/blog/assets/js/5.7d16fc96.js"><link rel="prefetch" href="/blog/assets/js/50.8aba7890.js"><link rel="prefetch" href="/blog/assets/js/51.d063c309.js"><link rel="prefetch" href="/blog/assets/js/52.45a5c188.js"><link rel="prefetch" href="/blog/assets/js/53.c49b82b1.js"><link rel="prefetch" href="/blog/assets/js/54.36ec8d0d.js"><link rel="prefetch" href="/blog/assets/js/55.5adc3f4c.js"><link rel="prefetch" href="/blog/assets/js/56.d4a2b501.js"><link rel="prefetch" href="/blog/assets/js/57.76a8d898.js"><link rel="prefetch" href="/blog/assets/js/58.a198dd01.js"><link rel="prefetch" href="/blog/assets/js/59.895d8f89.js"><link rel="prefetch" href="/blog/assets/js/6.c1bd8a18.js"><link rel="prefetch" href="/blog/assets/js/60.1ca909c4.js"><link rel="prefetch" href="/blog/assets/js/61.3ec2b87d.js"><link rel="prefetch" href="/blog/assets/js/62.e3b3c0c5.js"><link rel="prefetch" href="/blog/assets/js/63.32bbcea5.js"><link rel="prefetch" href="/blog/assets/js/64.64f59eed.js"><link rel="prefetch" href="/blog/assets/js/65.c7c4b019.js"><link rel="prefetch" href="/blog/assets/js/66.493171e8.js"><link rel="prefetch" href="/blog/assets/js/67.f2190fa7.js"><link rel="prefetch" href="/blog/assets/js/68.9488ffff.js"><link rel="prefetch" href="/blog/assets/js/69.a42ac7f6.js"><link rel="prefetch" href="/blog/assets/js/7.b3ad5181.js"><link rel="prefetch" href="/blog/assets/js/70.462c439c.js"><link rel="prefetch" href="/blog/assets/js/71.39b21af8.js"><link rel="prefetch" href="/blog/assets/js/72.60ca23f9.js"><link rel="prefetch" href="/blog/assets/js/73.5459e894.js"><link rel="prefetch" href="/blog/assets/js/74.0a34ec7f.js"><link rel="prefetch" href="/blog/assets/js/76.3efac05e.js"><link rel="prefetch" href="/blog/assets/js/77.0f448068.js"><link rel="prefetch" href="/blog/assets/js/78.32fee02f.js"><link rel="prefetch" href="/blog/assets/js/79.6a284e51.js"><link rel="prefetch" href="/blog/assets/js/8.5bac1923.js"><link rel="prefetch" href="/blog/assets/js/80.ce56f875.js"><link rel="prefetch" href="/blog/assets/js/81.9a721258.js"><link rel="prefetch" href="/blog/assets/js/82.ca2bb8f3.js"><link rel="prefetch" href="/blog/assets/js/83.7d0d9e4d.js"><link rel="prefetch" href="/blog/assets/js/84.f8058a3d.js"><link rel="prefetch" href="/blog/assets/js/85.50a8110f.js"><link rel="prefetch" href="/blog/assets/js/86.9248b927.js"><link rel="prefetch" href="/blog/assets/js/87.b7eddfef.js"><link rel="prefetch" href="/blog/assets/js/88.288650fb.js"><link rel="prefetch" href="/blog/assets/js/89.eaa19525.js"><link rel="prefetch" href="/blog/assets/js/9.59267eaa.js"><link rel="prefetch" href="/blog/assets/js/90.3cbd112c.js"><link rel="prefetch" href="/blog/assets/js/91.00472f3d.js"><link rel="prefetch" href="/blog/assets/js/92.29ba9467.js"><link rel="prefetch" href="/blog/assets/js/93.331e51d4.js"><link rel="prefetch" href="/blog/assets/js/94.fbc99be0.js"><link rel="prefetch" href="/blog/assets/js/95.9ab9950c.js"><link rel="prefetch" href="/blog/assets/js/96.9ddcdd2a.js"><link rel="prefetch" href="/blog/assets/js/97.bbec150d.js"><link rel="prefetch" href="/blog/assets/js/98.ce0281ac.js"><link rel="prefetch" href="/blog/assets/js/99.8de07dc9.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.7915b91d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">技术小站</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java篇" class="dropdown-title"><span class="title">Java篇</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java篇" class="mobile-dropdown-title"><span class="title">Java篇</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/java/collection/" class="nav-link">
+  Java 容器
+</a></li><li class="dropdown-item"><!----> <a href="/blog/java/jvm/" class="nav-link">
+  Java 虚拟机
+</a></li><li class="dropdown-item"><!----> <a href="/blog/java/concurrent/" class="nav-link router-link-active">
+  Java 高并发
+</a></li><li class="dropdown-item"><!----> <a href="/blog/java/io/" class="nav-link">
+  Java IO
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/blog/database/redis/" class="nav-link">
+  Redis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架篇" class="dropdown-title"><span class="title">框架篇</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架篇" class="mobile-dropdown-title"><span class="title">框架篇</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/frame/spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/blog/frame/springboot/" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/blog/frame/mybatis/" class="nav-link">
+  MyBatis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶篇" class="dropdown-title"><span class="title">进阶篇</span> <span class="arrow down"></span></button> <button type="button" aria-label="进阶篇" class="mobile-dropdown-title"><span class="title">进阶篇</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/middleware/es/" class="nav-link">
+  Elasticsearch
+</a></li><li class="dropdown-item"><!----> <a href="/blog/middleware/docker/" class="nav-link">
+  Docker
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/design/" class="nav-link">
+  设计模式
+</a></div><div class="nav-item"><a href="/blog/util/" class="nav-link">
+  工具向
+</a></div><div class="nav-item"><a href="/blog/personal/" class="nav-link">
+  关于我
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Java篇" class="dropdown-title"><span class="title">Java篇</span> <span class="arrow down"></span></button> <button type="button" aria-label="Java篇" class="mobile-dropdown-title"><span class="title">Java篇</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/java/collection/" class="nav-link">
+  Java 容器
+</a></li><li class="dropdown-item"><!----> <a href="/blog/java/jvm/" class="nav-link">
+  Java 虚拟机
+</a></li><li class="dropdown-item"><!----> <a href="/blog/java/concurrent/" class="nav-link router-link-active">
+  Java 高并发
+</a></li><li class="dropdown-item"><!----> <a href="/blog/java/io/" class="nav-link">
+  Java IO
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/database/mysql/" class="nav-link">
+  MySQL
+</a></li><li class="dropdown-item"><!----> <a href="/blog/database/redis/" class="nav-link">
+  Redis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架篇" class="dropdown-title"><span class="title">框架篇</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架篇" class="mobile-dropdown-title"><span class="title">框架篇</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/frame/spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/blog/frame/springboot/" class="nav-link">
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/blog/frame/mybatis/" class="nav-link">
+  MyBatis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶篇" class="dropdown-title"><span class="title">进阶篇</span> <span class="arrow down"></span></button> <button type="button" aria-label="进阶篇" class="mobile-dropdown-title"><span class="title">进阶篇</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/middleware/es/" class="nav-link">
+  Elasticsearch
+</a></li><li class="dropdown-item"><!----> <a href="/blog/middleware/docker/" class="nav-link">
+  Docker
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/design/" class="nav-link">
+  设计模式
+</a></div><div class="nav-item"><a href="/blog/util/" class="nav-link">
+  工具向
+</a></div><div class="nav-item"><a href="/blog/personal/" class="nav-link">
+  关于我
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Java工程师成长计划</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/java/concurrent/Java高并发.html" class="sidebar-link">Java工程师成长计划-高并发</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>重点总结</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="多线程设计模式"><a href="#多线程设计模式" class="header-anchor">#</a> 多线程设计模式</h1> <h2 id="单例模式"><a href="#单例模式" class="header-anchor">#</a> 单例模式</h2> <p>单例模式在并发情况下，需要保证线程安全，来实现单例对象的线程安全。</p> <p><a href="https://albertyang0801.github.io/blog/design/build/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F.html#%E6%87%92%E6%B1%89%E5%BC%8F" target="_blank" rel="noopener noreferrer">单例设计模式笔记<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>在单例模式保证线程安全的几种方式中，静态内部类和枚举的效率最高，因为没有涉及到加锁等消耗性能的问题。</p> <ul><li><p>静态内部类</p> <div class="language-JAVA line-numbers-mode"><pre class="language-java"><code>	<span class="token comment">/**
+     * 静态内部类，在外部类被加载的时候不会立即加载。
+     * 只有在调用该类里的参数或方法时，对象实例才会被加载。达到了懒加载的效果。
+     * 在类加载的时候，是线程安全的。达到了线程安全的效果。
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">SingletonStaticClass</span> <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">SingletonStatic</span> SINGLETONSTATIC <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SingletonStatic</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">SingletonStatic</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">SingletonStaticClass</span><span class="token punctuation">.</span>SINGLETONSTATIC<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>	
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div></li></ul> <h2 id="不变模式"><a href="#不变模式" class="header-anchor">#</a> 不变模式</h2> <p>在并发情况下，若对象在创建后，内部状态永久不会被改变，也能保证并发情况下的线程安全问题。依靠对象的不可变性，可以确保并发情况下访问到的对象是相同的，这就是不变模式。</p> <p><em>不变模式情况下，不需要使用同步操作来实现线程安全。</em></p> <h3 id="不变模式实现"><a href="#不变模式实现" class="header-anchor">#</a> 不变模式实现</h3> <p>在 Java 中，实现不变模式，确保对象在创建后不会发生任何改变。</p> <ul><li><p>去除对象的 setter 方法以及修改属性的方法。</p></li> <li><p>将所有属性设置为私有，用 final 标记。</p></li> <li><p>确保没有子类可以重载修改对象行为。</p></li> <li><p>有一个创建完整对象的构造函数。</p> <hr> <div class="language- line-numbers-mode"><pre class="language-text"><code>public final class Product {
+
+    private final String no;
+    private final String name;
+    private final double price;
+
+    public Product(String no,String name,double price){
+        super();
+        this.no=no;
+        this.name=name;
+        this.price=price;
+    }
+
+    public String getNo() {
+        return no;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div></li></ul> <h3 id="不变模式的应用"><a href="#不变模式的应用" class="header-anchor">#</a> 不变模式的应用</h3> <p>在 JDK 中，不变模式的应用很广泛。最经典的就是 <code>java.lang.String</code> 类。</p> <p>所有的包装类都是使用不变模式实现的。</p> <div class="language-JAVA line-numbers-mode"><pre class="language-java"><code><span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>String</span>
+<span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>Boolean</span>
+<span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>Byte</span>
+<span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>Character</span>
+<span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>Integer</span>
+<span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>Short</span>
+<span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>Long</span>
+<span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>Float</span>
+<span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>Double</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="生产者-消费者模式"><a href="#生产者-消费者模式" class="header-anchor">#</a> 生产者-消费者模式</h2></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021-09-25 22:58:39</span></div></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/blog/assets/js/app.c12bf646.js" defer></script><script src="/blog/assets/js/2.7ded94f8.js" defer></script><script src="/blog/assets/js/75.658643bb.js" defer></script>
+  </body>
+</html>
