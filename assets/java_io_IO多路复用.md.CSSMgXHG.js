@@ -1,0 +1,1 @@
+import{_ as a,c as e,o as t}from"./chunks/framework.Dgg8-8ov.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"java/io/IO多路复用.md","filePath":"java/io/IO多路复用.md"}'),o={name:"java/io/IO多路复用.md"};function r(s,c,n,_,i,p){return t(),e("div")}const f=a(o,[["render",r]]);export{m as __pageData,f as default};

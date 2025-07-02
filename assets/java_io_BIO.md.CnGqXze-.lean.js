@@ -1,0 +1,1 @@
+import{_ as a,c as e,o as t}from"./chunks/framework.Dgg8-8ov.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"java/io/BIO.md","filePath":"java/io/BIO.md"}'),o={name:"java/io/BIO.md"};function r(s,c,n,i,p,_){return t(),e("div")}const f=a(o,[["render",r]]);export{m as __pageData,f as default};
