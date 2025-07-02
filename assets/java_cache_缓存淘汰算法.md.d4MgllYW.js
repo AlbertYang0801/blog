@@ -1,0 +1,1 @@
+import{_ as a,c as e,o as t}from"./chunks/framework.BAYqcHKv.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"java/cache/缓存淘汰算法.md","filePath":"java/cache/缓存淘汰算法.md"}'),c={name:"java/cache/缓存淘汰算法.md"};function r(o,_,s,n,p,d){return t(),e("div")}const f=a(c,[["render",r]]);export{m as __pageData,f as default};

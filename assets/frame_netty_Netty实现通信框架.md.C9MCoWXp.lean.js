@@ -1,0 +1,1 @@
+import{_ as t,c as e,o as a}from"./chunks/framework.BAYqcHKv.js";const d=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"frame/netty/Netty实现通信框架.md","filePath":"frame/netty/Netty实现通信框架.md"}'),r={name:"frame/netty/Netty实现通信框架.md"};function n(o,_,s,c,m,f){return a(),e("div")}const i=t(r,[["render",n]]);export{d as __pageData,i as default};

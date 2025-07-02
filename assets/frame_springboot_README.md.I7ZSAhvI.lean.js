@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as r}from"./chunks/framework.BAYqcHKv.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"frame/springboot/README.md","filePath":"frame/springboot/README.md"}'),a={name:"frame/springboot/README.md"};function o(s,n,c,p,i,m){return r(),t("div")}const d=e(a,[["render",o]]);export{_ as __pageData,d as default};
