@@ -1,1 +1,0 @@
-import{_ as a,c as e,o as t}from"./chunks/framework.BAYqcHKv.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"java/io/README.md","filePath":"java/io/README.md"}'),o={name:"java/io/README.md"};function r(s,c,n,i,p,_){return t(),e("div")}const E=a(o,[["render",r]]);export{m as __pageData,E as default};

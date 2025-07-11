@@ -1,1 +1,0 @@
-import{_ as e,c as r,o as t}from"./chunks/framework.BAYqcHKv.js";const f=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"frame/spring/Spring事务总结.md","filePath":"frame/spring/Spring事务总结.md"}'),a={name:"frame/spring/Spring事务总结.md"};function n(s,p,i,o,c,_){return t(),r("div")}const d=e(a,[["render",n]]);export{f as __pageData,d as default};

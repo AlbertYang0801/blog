@@ -1,1 +1,0 @@
-import{_ as a,c as e,o as t}from"./chunks/framework.BAYqcHKv.js";const i=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"java/jvm/频繁GC排查.md","filePath":"java/jvm/频繁GC排查.md"}'),r={name:"java/jvm/频繁GC排查.md"};function o(s,c,n,_,m,p){return t(),e("div")}const f=a(r,[["render",o]]);export{i as __pageData,f as default};

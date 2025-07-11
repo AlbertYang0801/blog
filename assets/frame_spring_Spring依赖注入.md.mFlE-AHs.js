@@ -1,1 +1,0 @@
-import{_ as e,c as r,o as t}from"./chunks/framework.Dgg8-8ov.js";const f=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"frame/spring/Spring依赖注入.md","filePath":"frame/spring/Spring依赖注入.md"}'),a={name:"frame/spring/Spring依赖注入.md"};function n(s,p,i,o,c,_){return t(),r("div")}const d=e(a,[["render",n]]);export{f as __pageData,d as default};

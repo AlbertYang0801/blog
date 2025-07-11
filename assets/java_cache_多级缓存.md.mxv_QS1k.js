@@ -1,1 +1,0 @@
-import{_ as a,c as e,o as t}from"./chunks/framework.Dgg8-8ov.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"java/cache/多级缓存.md","filePath":"java/cache/多级缓存.md"}'),c={name:"java/cache/多级缓存.md"};function r(o,s,n,_,p,d){return t(),e("div")}const f=a(c,[["render",r]]);export{m as __pageData,f as default};

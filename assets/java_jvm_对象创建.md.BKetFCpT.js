@@ -1,1 +1,0 @@
-import{_ as a,c as e,o as t}from"./chunks/framework.Dgg8-8ov.js";const i=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"java/jvm/对象创建.md","filePath":"java/jvm/对象创建.md"}'),r={name:"java/jvm/对象创建.md"};function o(s,c,n,_,m,p){return t(),e("div")}const f=a(r,[["render",o]]);export{i as __pageData,f as default};

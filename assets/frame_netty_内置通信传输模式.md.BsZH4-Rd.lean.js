@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as a}from"./chunks/framework.Dgg8-8ov.js";const d=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"frame/netty/内置通信传输模式.md","filePath":"frame/netty/内置通信传输模式.md"}'),r={name:"frame/netty/内置通信传输模式.md"};function _(n,o,s,c,m,f){return a(),t("div")}const i=e(r,[["render",_]]);export{d as __pageData,i as default};

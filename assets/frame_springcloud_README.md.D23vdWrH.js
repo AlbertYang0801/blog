@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as r}from"./chunks/framework.Dgg8-8ov.js";const f=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"frame/springcloud/README.md","filePath":"frame/springcloud/README.md"}'),a={name:"frame/springcloud/README.md"};function o(s,c,n,p,d,i){return r(),t("div")}const _=e(a,[["render",o]]);export{f as __pageData,_ as default};

@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as a}from"./chunks/framework.Dgg8-8ov.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"frame/mybatis/README.md","filePath":"frame/mybatis/README.md"}'),r={name:"frame/mybatis/README.md"};function s(o,c,m,n,i,f){return a(),t("div")}const d=e(r,[["render",s]]);export{_ as __pageData,d as default};
