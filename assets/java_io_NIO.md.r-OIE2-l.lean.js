@@ -1,0 +1,1 @@
+import{_ as i,c as a,o as n,ag as h}from"./chunks/framework.D7pKEi_Q.js";const g=JSON.parse('{"title":"NIO","description":"","frontmatter":{},"headers":[],"relativePath":"java/io/NIO.md","filePath":"java/io/NIO.md"}'),l={name:"java/io/NIO.md"};function k(t,s,p,e,E,r){return n(),a("div",null,s[0]||(s[0]=[h("",35)]))}const y=i(l,[["render",k]]);export{g as __pageData,y as default};

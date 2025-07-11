@@ -1,0 +1,1 @@
+import{_ as o,c as t,o as a,ag as r}from"./chunks/framework.D7pKEi_Q.js";const I=JSON.parse('{"title":"BIO","description":"","frontmatter":{},"headers":[],"relativePath":"java/io/BIO.md","filePath":"java/io/BIO.md"}'),p={name:"java/io/BIO.md"};function c(i,e,n,s,l,_){return a(),t("div",null,e[0]||(e[0]=[r("",13)]))}const S=o(p,[["render",c]]);export{I as __pageData,S as default};
